@@ -1,5 +1,5 @@
 import java.util.Scanner;
-// connect four
+// connect four\
 public class connectFour {
 
 	public static boolean isNumeric(String strNum) {
@@ -14,10 +14,10 @@ public class connectFour {
 	public static void main (String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
-		int[][] board = new int[6][7]; //2d arry for board
-		boolean gameFinished = false; //while loop ends when gameFinished=true
-		boolean gameTie = false; //gameTie=true: no positions can be made
-		boolean validInput = false; //checking if user input is a double.
+		int[][] board = new int[6][7]; // 2d array for board
+		boolean gameFinished = false; // while loop ends when gameFinished = true
+		boolean gameTie = false; // gameTie = true: no additional moves can be made
+		boolean validInput = false; // checking if user input is a numeric value
 		int currentPlayer = 1;
 		int x = 0;
 		int y = 0;
@@ -68,6 +68,10 @@ public class connectFour {
 				System.out.print("----");
 			}
 			System.out.println();
+			for (int j = 1; j <= board[0].length; j++) {
+				System.out.print("  " + j + " ");
+			}
+			System.out.println();
 
 			// Input Validation
 
@@ -96,32 +100,173 @@ public class connectFour {
 				}
 			}
 			validInput = false;
-			/*
+
 			// Win Condition validation
 
-			for (int k = 1; k < 4; k++){
-				if ((y+k) < board.length) {
-					if (board[y+k][x] == board[y][x]) {
+			// check for y axis
+			for (int k = 1; k < 4; k++) {
+				if ((y-k) >= 0) {
+					if (board[y - k][x] == board[y - k + 1][x]) {
 						count += 1;
-					} else if ((y-k) <= 0){
-						if (board[y-k][x] == board[y][x]) {
-							count +=1;
-						}
+					} else {
+						break;
 					}
+				} else {
+					break;
 				}
 			}
+			for (int k = 1; k < 4; k++) {
+				if ((y+k) < board.length) {
+					if (board[y + k][x] == board[y + k - 1][x]) {
+						count += 1;
+					} else {
+						break;
+					}
+				} else {
+					break;
+				}
+			}
+			if (count > 3) {
+				System.out.println("Player " + currentPlayer + " wins!");
+				gameFinished = true;
+				break;
+			}
+
+			count = 1;
+
+			// check for x axis
+			for (int k = 1; k < 4; k++) {
+				if ((x+k) < board[0].length) {
+					if (board[y][x+k] == board[y][x + k - 1]) {
+						count += 1;
+					} else {
+						break;
+					}
+				} else {
+					break;
+				}
+			}
+			for (int k = 1; k < 4; k++) {
+				if ((x-k) >= 0) {
+					if (board[y][x-k] == board[y][x - k + 1]) {
+						count += 1;
+					} else {
+						break;
+					}
+				} else {
+					break;
+				}
+			}
+			if (count > 3) {
+				System.out.println("Player " + currentPlayer + " wins!");
+				gameFinished = true;
+				break;
+			}
+
+			count = 1;
+
+			// check for ++ diagonal axis
+			for (int k = 1; k < 4; k++) {
+				if ((x+k) < board[0].length && (y+k) < board.length) {
+					if (board[y + k][x + k] == board[y + k - 1][x + k - 1]) {
+						count += 1;
+					} else {
+						break;
+					}
+				} else {
+					break;
+				}
+			}
+			for (int k = 1; k < 4; k++) {
+				if ((x-k) >= 0 && (y-k) >= 0) {
+					if (board[y - k][x - k] == board[y - k + 1][x - k + 1]) {
+						count += 1;
+					} else {
+						break;
+					}
+				} else {
+					break;
+				}
+			}
+			if (count > 3) {
+				System.out.println("Player " + currentPlayer + " wins!");
+				gameFinished = true;
+				break;
+			}
+
+			count = 1;
+
+			// check for +- diagonal axis
+			for (int k = 1; k < 4; k++) {
+				if ((x + k) < board[0].length && (y - k) >= 0) {
+					if (board[y - k][x + k] == board[y - k + 1][x + k - 1]) {
+						count += 1;
+					} else {
+						break;
+					}
+				} else {
+					break;
+				}
+			}
+			for (int k = 1; k < 4; k++) {
+				if ((x - k) >= 0 && (y + k) < board.length) {
+					if (board[y + k][x - k] == board[y + k - 1][x - k + 1]) {
+						count += 1;
+					} else {
+						break;
+					}
+				} else {
+					break;
+				}
+			}
+			if (count > 3) {
+				System.out.println("Player " + currentPlayer + " wins!");
+				gameFinished = true;
+				break;
+			}
+
+			count = 1;
 
 			// No Winner validation
 
-			*/
+
+
 			// Changing of Players
 
 			if (currentPlayer == 1){
 				currentPlayer = 2;
 			} else {
 				currentPlayer = 1;
-			}	
+			}
 		}
+
+		// displaying the board
+
+		for (int i = 0; i < board.length; i++) {
+				System.out.print("-");
+				for (int j = 0; j < board[0].length; j++) {
+					System.out.print("----");
+				}
+				System.out.println();
+				for (int k = 0; k < board[0].length; k++) {
+					if (board[i][k] == 1){
+						System.out.print("| x ");
+					}else if (board[i][k] == 2){
+						System.out.print("| o ");
+					}else {
+						System.out.print("|   ");
+					}
+				}
+				System.out.println("|");
+			}
+		System.out.print("-");
+		for (int j = 0; j < board[0].length; j++) {
+			System.out.print("----");
+		}
+		System.out.println();
+		for (int j = 1; j <= board[0].length; j++) {
+			System.out.print("  " + j + " ");
+		}
+		System.out.println();
 	}
 }
-//test
