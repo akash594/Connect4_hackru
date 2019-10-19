@@ -18,6 +18,7 @@ public class connectFour {
 		boolean gameFinished = false; // while loop ends when gameFinished = true
 		boolean gameTie = false; // gameTie = true: no additional moves can be made
 		boolean validInput = false; // checking if user input is a numeric value
+		int moveCount = 0;
 		int currentPlayer = 1;
 		int x = 0;
 		int y = 0;
@@ -231,7 +232,7 @@ public class connectFour {
 
 			moveCount += 1;
 			if (moveCount == 42){
-				System.outprintln("No possible moves remain! It's a tie!");
+				System.out.println("No possible moves remain! It's a tie!");
 			}
 
 			// Changing of Players
