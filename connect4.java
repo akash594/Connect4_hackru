@@ -229,7 +229,10 @@ public class connectFour {
 
 			// No Winner validation
 
-
+			moveCount += 1;
+			if (moveCount == 42){
+				System.outprintln("No possible moves remain! It's a tie!");
+			}
 
 			// Changing of Players
 
