@@ -15,10 +15,10 @@ public class connectFour {
 	public static void main (String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
-		int[][] board = new int[6][7];
-		boolean gameFinished = false;
-		boolean gameTie = false;
-		boolean validInput = false;
+		int[][] board = new int[6][7]; //2d arry for board
+		boolean gameFinished = false; //while loop ends when gameFinished=true
+		boolean gameTie = false; //gameTie=true: no positions can be made
+		boolean validInput = false; //checking if user input is a double.
 		int currentPlayer = 1;
 		int x = 0;
 		int y = 0;
