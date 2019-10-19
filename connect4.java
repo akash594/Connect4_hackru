@@ -1,4 +1,4 @@
-import java.util.Scanner;
+ java.util.Scanner;
 // connect four
 // test test test by byeong su
 public class connectFour {
