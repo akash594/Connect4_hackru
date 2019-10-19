@@ -1,5 +1,6 @@
  java.util.Scanner;
 // connect four
+// test test test by byeong su
 public class connectFour {
 
 	public static boolean isNumeric(String strNum) {
