@@ -4,7 +4,7 @@ public class connectFour {
 
 	public static boolean isNumeric(String strNum) {
    		try {
-    	    double d = Double.parseDouble(strNum);
+    	    int d = Integer.parseInt(strNum);
    		} catch (NumberFormatException | NullPointerException nfe) {
      		return false;
    		}
