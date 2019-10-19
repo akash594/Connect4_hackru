@@ -1,6 +1,5 @@
- java.util.Scanner;
+import java.util.Scanner;
 // connect four
-// test test test by byeong su
 public class connectFour {
 
 	public static boolean isNumeric(String strNum) {
@@ -78,7 +77,7 @@ public class connectFour {
 				input = scanner.nextLine();
 				if (isNumeric(input) == true) {
 					x = Integer.parseInt(input) - 1;
-					if (x > 7 || x < 0) {
+					if (x > 6 || x < 0) {
 						System.out.println("Please enter an integer between 1 and 7.\n");
 					} else if (board[0][x] != 0) {
 						System.out.println("That column is full! Please enter a different position.");
@@ -88,6 +87,7 @@ public class connectFour {
 								board[i-1][x] = currentPlayer;
 								y = i - 1;
 								validInput = true;
+								break;
 							}
 						}
 					}
@@ -96,7 +96,7 @@ public class connectFour {
 				}
 			}
 			validInput = false;
-
+			/*
 			// Win Condition validation
 
 			for (int k = 1; k < 4; k++){
@@ -113,35 +113,15 @@ public class connectFour {
 
 			// No Winner validation
 
-			for(int i = 0; i < 8; i++){
-				if(array[i] && array[i+1]){
-					gameTie = true;
-				}else{
-					gameTie = false;
-					break;
-				}
-			}
-
-			if(gameTie == true){
-				System.out.println("No possible moves remain! It's a tie!\n");
-				gameFinished = true;
-			}
-
+			*/
 			// Changing of Players
 
 			if (currentPlayer == 1){
 				currentPlayer = 2;
 			} else {
 				currentPlayer = 1;
-			}
+			}	
 		}
-
-		System.out.println(" " + board[0] + " | " + board[1] + " | " + board[2]);
-		System.out.println("-----------");
-		System.out.println(" " + board[3] + " | " + board[4] + " | " + board[5]);
-		System.out.println("-----------");
-		System.out.println(" " + board[6] + " | " + board[7] + " | " + board[8] + "\n");
-
 	}
 }
 //test
